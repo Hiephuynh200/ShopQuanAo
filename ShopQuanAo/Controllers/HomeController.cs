@@ -13,11 +13,6 @@ namespace ShopQuanAo.Controllers
             return View();
         }
 
-        public ActionResult HomePage()
-        {
-
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
