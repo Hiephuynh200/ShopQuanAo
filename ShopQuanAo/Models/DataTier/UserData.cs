@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ShopQuanAo.Models.DataTier;
 namespace ShopQuanAo.Models.DataTier
 {
     public class UserData
@@ -11,28 +12,50 @@ namespace ShopQuanAo.Models.DataTier
         {
             data = new MyDataContextDB();
         }
-        public NhanVien Add(NhanVien nv)
-        {
-            data.NhanVien.Add(nv);
-            data.SaveChanges();
-            return nv;
-        }
-        public NhanVien Update(NhanVien nv)
-        {
-            var nhanvien = data.NhanVien.FirstOrDefault(x => x.MaNV == nv.MaNV);
-            nhanvien.Pass = nv.Pass;
-            nhanvien.User = nv.User;
-            nhanvien.TenNV = nv.TenNV;
-            nhanvien.Email = nv.Email;
-            nhanvien.SDT = nv.SDT;
-            nhanvien.DiaChi = nv.DiaChi;
-            data.SaveChanges();
-            return nv; 
-        }
-        public int Login(string useName, string PassWord)
-        {
-            int count = data.NhanVien.Where(x => x.User == useName && x.Pass == PassWord).Count();
 
+        public KhachHang getItems(string email)
+        {
+            return data.KhachHang.FirstOrDefault(x => x.Email == email);
+        }
+
+        public List<KhachHang> getListKhachHang ()
+        {
+            return data.KhachHang.ToList();
+        }
+
+        public KhachHang Add(KhachHang user)
+        {
+            data.KhachHang.Add(user);
+            data.SaveChanges();
+            return user;
+        }
+        public KhachHang Update(KhachHang user)
+        {
+            var kh = data.KhachHang.FirstOrDefault(x => x.MaKH == user.MaKH);
+            kh.PassKH = user.PassKH;
+            kh.TenKH = user.TenKH;
+            kh.Email = user.Email;
+            kh.SDT = user.SDT;
+            kh.DiaChi = user.DiaChi;
+            data.SaveChanges();
+            return kh;
+        }
+        public int Login(string email, string PassWord)
+        {
+            var LoginKH = data.KhachHang.FirstOrDefault(x => x.Email == email);
+            if(LoginKH == null) // email ko ton tai
+            {
+                return -2;
+            } else
+            {
+                if(LoginKH.PassKH == PassWord)
+                {
+                    return 1; // dang nhap thanh cong
+                } else
+                {
+                    return -1; //sai mk
+                }
+            }
         }
     }
 }

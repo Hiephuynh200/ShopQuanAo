@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace ShopQuanAo.Models
 {
-    public partial class MyData : DbContext
+    public partial class MyDataContextDB : DbContext
     {
-        public MyData()
-            : base("name=MyData")
+        public MyDataContextDB()
+            : base("name=MyDataContextDB1")
         {
         }
 
