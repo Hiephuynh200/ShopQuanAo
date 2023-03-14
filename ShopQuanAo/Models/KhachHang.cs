@@ -17,7 +17,6 @@ namespace ShopQuanAo.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaKH { get; set; }
 
         [StringLength(50)]
