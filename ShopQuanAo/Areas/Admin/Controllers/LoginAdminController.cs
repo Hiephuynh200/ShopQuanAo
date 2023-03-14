@@ -7,24 +7,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ShopQuanAo.Models.DataTier;
+using ShopQuanAo.Models;
 
 namespace ShopQuanAo.Areas.Admin.Controllers
 {
     public class LoginAdminController : Controller
     {
         // GET: Admin/LoginAdmin
+
+        MyDataContextDB data = new MyDataContextDB();
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Login(LoginModel loginModel)
+        public ActionResult Login(LoginModel loginModel, string tenkh)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var d = new UserData();
                 var kq = d.Login(loginModel.Email, loginModel.Pass);
-                if(kq == 1 )
+                if (kq == 1)
                 {
                     var user = d.getItems(loginModel.Email);
                     var session = new UserLogin();
@@ -32,23 +35,25 @@ namespace ShopQuanAo.Areas.Admin.Controllers
                     session.Email = user.Email;
                     session.USerName = user.UserKH;
                     session.FullName = user.TenKH;
-                    Session.Add(All__func.USER_SESSION, session);;
-                    return RedirectToAction("Index", "Home");
+                    Session.Add(All__func.USER_SESSION, session); ;
+                    return RedirectToAction("Index", "HomeAdmin", "Admin");
                 }
-                else if(kq == 1)
-                { 
-                    ModelState.AddModelError("","dang nhap thanh cong");
-                } else if(kq == -1)
+                else if (kq == 1)
+                {
+
+                    ModelState.AddModelError("", "dang nhap thanh cong");
+                }
+                else if (kq == -1)
                 {
                     ModelState.AddModelError("", "sai mk");
                 }
                 else if (kq == -2)
                 {
                     ModelState.AddModelError("", "tai khoan ko ton tai");
-                }                                         
+                }
 
             }
             return View("Index");
-        } 
+        }
     }
 }

@@ -16,7 +16,6 @@ namespace ShopQuanAo.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaSP { get; set; }
 
         [StringLength(50)]

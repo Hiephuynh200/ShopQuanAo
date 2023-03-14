@@ -160,6 +160,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Model\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -174,7 +175,6 @@
     <Compile Include="Models\MyDataContextDB.cs" />
     <Compile Include="Models\NhanVien.cs" />
     <Compile Include="Models\SanPham.cs" />
-    <Compile Include="Models\Shipper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2848,6 +2848,10 @@
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\Shared\_LeftSideBar.cshtml" />
     <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

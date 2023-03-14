@@ -8,7 +8,7 @@ namespace ShopQuanAo.Models
     public partial class MyDataContextDB : DbContext
     {
         public MyDataContextDB()
-            : base("name=MyDataContextDB1")
+            : base("name=MyDataContextDB")
         {
         }
 
@@ -19,7 +19,6 @@ namespace ShopQuanAo.Models
         public virtual DbSet<LoaiSanPham> LoaiSanPham { get; set; }
         public virtual DbSet<NhanVien> NhanVien { get; set; }
         public virtual DbSet<SanPham> SanPham { get; set; }
-        public virtual DbSet<Shipper> Shipper { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
