@@ -57,12 +57,22 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" onclick="return create()" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
+<script>
+    function create() {
+        if (confirm("ban muon them san pham") == true) {
+            alert("ba tao thanh cong")
+        }
+        else {
+            return false;
+        }
+    }
+</script>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
