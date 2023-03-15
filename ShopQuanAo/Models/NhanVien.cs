@@ -12,12 +12,10 @@ namespace ShopQuanAo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            DonDatHang = new HashSet<DonDatHang>();
             HoaDon = new HashSet<HoaDon>();
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaNV { get; set; }
 
         [StringLength(50)]
@@ -40,9 +38,6 @@ namespace ShopQuanAo.Models
         public int? MaCV { get; set; }
 
         public virtual ChucVu ChucVu { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonDatHang> DonDatHang { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDon { get; set; }

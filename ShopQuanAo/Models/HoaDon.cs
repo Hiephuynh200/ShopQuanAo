@@ -10,15 +10,14 @@ namespace ShopQuanAo.Models
     public partial class HoaDon
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaHD { get; set; }
 
-        public int? MaKH { get; set; }
+        public int MaKH { get; set; }
 
         public int? MaNV { get; set; }
 
-        [StringLength(50)]
-        public string Email { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? NgayLapHoaDon { get; set; }
 
         public virtual KhachHang KhachHang { get; set; }
 

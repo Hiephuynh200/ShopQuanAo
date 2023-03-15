@@ -9,12 +9,6 @@ namespace ShopQuanAo.Models
     [Table("SanPham")]
     public partial class SanPham
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SanPham()
-        {
-            DonDatHang = new HashSet<DonDatHang>();
-        }
-
         [Key]
         public int MaSP { get; set; }
 
@@ -26,12 +20,11 @@ namespace ShopQuanAo.Models
 
         public int? MaLoai { get; set; }
 
-        public double? DonGia { get; set; }
+        public double? GiaBan { get; set; }
 
         public int? SoLuong { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonDatHang> DonDatHang { get; set; }
+        public double? GiaNhap { get; set; }
 
         public virtual LoaiSanPham LoaiSanPham { get; set; }
     }

@@ -16,6 +16,28 @@ namespace ShopQuanAo.Areas.Admin.Controllers
         {
             return View();
         }
+        //public string ProcessUpload(HttpPostedFileBase file)
+        //{
+        //    if (file == null)
+        //    {
+        //        return "";
+        //    }
+        //    file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
+        //    return "/Content/images/" + file.FileName;
+        //}
+
+        public ActionResult listSP()
+        {
+            var all_Sp = from ss in data.SanPham select ss;
+            return View(all_Sp);
+        }
+
+
+        public ActionResult Detail(int id)
+        {
+            var D_sp =  data.SanPham.Where(m => m.MaSP == id).First(); 
+            return View(D_sp);
+        }
         public ActionResult Create()
         {
             return View();
@@ -28,18 +50,20 @@ namespace ShopQuanAo.Areas.Admin.Controllers
             data.SaveChanges();
             return RedirectToAction("Create");
         }
+
         public ActionResult Delete(int id)
         {
-            var D_SP = data.SanPham.First(m => m.MaSP == id);
-            return View(D_SP);
+            var D_sach = data.SanPham.First(m => m.MaSP== id);
+            return View(D_sach);
         }
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            var D_SP = data.SanPham.Where(m => m.MaSP == id).First();
-            data.SanPham.Remove(D_SP);
+            var D_sach = data.SanPham.Where(m => m.MaSP == id).First();
+            data.SanPham.Remove(D_sach);
             data.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("lstSP");
         }
+
     }
 }
