@@ -62,7 +62,7 @@ namespace ShopQuanAo.Areas.Admin.Controllers
             var D_sach = data.SanPham.Where(m => m.MaSP == id).First();
             data.SanPham.Remove(D_sach);
             data.SaveChanges();
-            return RedirectToAction("lstSP");
+            return RedirectToAction("listSP", "HomeAdmin");
         }
 
     }
