@@ -1,0 +1,45 @@
+﻿@model ShopQuanAo.Models.SanPham
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/Site.css" rel="stylesheet" />
+}
+
+
+<div class="wrapper">
+    <h4>Chi tiết Sản Phẩm</h4>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Tên Sản Phẩm</th>
+                <th scope="col">Mã Sản phẩm </th>
+                <th scope="col">Loại SP</th>
+                <th scope="col">Hình ảnh</th>
+                <th scope="col">Giá Bán</th>
+                <th scope="col">Số Lượng</th>
+                <th scope="col">Giá Nhập</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.TenSP)</td>
+                <td>@Html.DisplayFor(model => model.MaSP)</td>
+                <td>@Html.DisplayFor(model => model.LoaiSanPham.TenLoai)</td>
+                <td>
+                    <img width="200px" src="@Html.DisplayFor(model => model.HinhAnh)" alt="Alternate Text" />
+                </td>
+                <td>@Html.DisplayFor(model => model.GiaBan)</td>
+                <td>@Html.DisplayFor(model => model.SoLuong) </td>
+                <td>@Html.DisplayFor(model => model.GiaNhap) </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSP }) |
+        @Html.ActionLink("Back to List", "listSP")
+    </p>
+</div>
+
+

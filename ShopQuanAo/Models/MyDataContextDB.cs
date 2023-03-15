@@ -8,7 +8,7 @@ namespace ShopQuanAo.Models
     public partial class MyDataContextDB : DbContext
     {
         public MyDataContextDB()
-            : base("name=MyDataContextDB")
+            : base("name=MyDataContextDB3")
         {
         }
 
@@ -22,6 +22,16 @@ namespace ShopQuanAo.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<KhachHang>()
+                .HasMany(e => e.DonDatHang)
+                .WithRequired(e => e.KhachHang)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<KhachHang>()
+                .HasMany(e => e.HoaDon)
+                .WithRequired(e => e.KhachHang)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.HinhAnh)
                 .IsUnicode(false);
